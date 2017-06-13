@@ -6,7 +6,6 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.util.AttributeSet;
-import android.util.FloatMath;
 import android.view.View;
 
 public class GraphDraw extends View {
@@ -82,7 +81,7 @@ public class GraphDraw extends View {
 
         do {
             distance = DISTANCES[distanceIndex] * distanceMultiplier;
-            numberOfLines = (int) FloatMath.ceil(maxValue / distance);
+            numberOfLines = (int) Math.ceil(maxValue / distance);
 
             distanceIndex++;
             if (distanceIndex == DISTANCES.length) {

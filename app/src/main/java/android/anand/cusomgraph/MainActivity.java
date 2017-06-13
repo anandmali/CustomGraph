@@ -8,7 +8,7 @@ import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
 
-    String TAG = "MainActivity";
+    private static final String TAG = MainActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +17,10 @@ public class MainActivity extends AppCompatActivity {
 
         Log.d(TAG, "Call to draw graph");
 
+        //Get custom graph view
         GraphDraw graphDraw = (GraphDraw) findViewById(R.id.graph);
+
+        //Initiate graph with new data
         graphDraw.setChartData(GraphValues());
 
     }
