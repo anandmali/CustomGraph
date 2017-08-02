@@ -10,7 +10,7 @@
         android:id="@+id/graph"
         android:layout_width="fill_parent"
         android:layout_height="240dp"
-        android:background="#a9b1af"
+        android:background="@android:color/white"
         android:padding ="16dp"
         android:layout_gravity="center"/>
 
