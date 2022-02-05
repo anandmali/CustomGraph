@@ -1,6 +1,5 @@
 <resources>
-    <string name="app_name">CusomGraph</string>
+    <string name="app_name">CustomGraph</string>
 
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 </resources>
