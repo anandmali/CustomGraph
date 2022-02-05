@@ -12,10 +12,10 @@ public class GraphDraw extends View {
 
     private static final int MIN_LINES = 3;
     private static final int MAX_LINES = 9;
-    private static final int[] DISTANCES = { 1, 2, 5 };
+    private static final int[] DISTANCES = {1, 2, 5};
 
-    private float[] pointValues = new float[] {};
-    private Paint paint = new Paint();
+    private float[] pointValues = new float[]{};
+    private final Paint paint = new Paint();
 
     public GraphDraw(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -45,6 +45,8 @@ public class GraphDraw extends View {
         //Draw circles at each point of deviation for Y-axis
         drawCircleDot(canvas);
 
+        //Draw lable for points of Y-axis
+        drawPointLable(canvas);
     }
 
     /**
@@ -93,7 +95,7 @@ public class GraphDraw extends View {
     /**
      * Draw the main graph lines, that shows the path of data points change
      */
-      private void DrawGraphLine(Canvas canvas) {
+    private void DrawGraphLine(Canvas canvas) {
         Path path = new Path();
         path.moveTo(getXPosition(0), getYPosition(pointValues[0]));
         for (int i = 1; i < pointValues.length; i++) {
@@ -163,9 +165,19 @@ public class GraphDraw extends View {
         for (int i = 0; i < pointValues.length; i++) {
             paint.setStyle(Paint.Style.FILL);
             paint.setColor(Color.RED);
-            paint.setTextSize(30);
-            canvas.drawText("point " + String.valueOf(i+1), getXPosition(i) + 4, getYPosition(pointValues[i]), paint);
-            canvas.drawCircle(getXPosition(i), getYPosition(pointValues[i]), 10, paint);
+            canvas.drawText("point " + (i + 1), getXPosition(i) + 4, getYPosition(pointValues[i]), paint);
+            canvas.drawCircle(getXPosition(i), getYPosition(pointValues[i]), 5, paint);
+        }
+    }
+
+    /**
+     * Label the points at each deviation occurred by data points given for Y-axis
+     */
+    private void drawPointLable(Canvas canvas) {
+        for (int i = 0; i < pointValues.length; i++) {
+            paint.setStyle(Paint.Style.FILL);
+            paint.setColor(Color.YELLOW);
+            canvas.drawText("point " + i, getXPosition(i) + 4, getYPosition(pointValues[i]), paint);
         }
     }
 }
